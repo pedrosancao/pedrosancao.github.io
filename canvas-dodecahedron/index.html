@@ -18,37 +18,37 @@
         <canvas width="842" height="595"></canvas>
         <script>
             var ctx = document.querySelector('canvas').getContext('2d')
-            , lineSize = 50, rotation = 0, baseAngle, angle, radius, distanceOrigin, center;
+            , lineSize = 80, baseAngle, angle, radius, distanceOrigin, offset;
             with (Math) {
-                baseAngle = 2*PI/5;
-                radius = sqrt(pow(lineSize, 2) / (pow(sin(baseAngle), 2) + pow(1 - cos(baseAngle), 2)));
-                distanceOrigin = cos(PI/5) * radius;
-                ctx.save();
-                ctx.translate(ctx.canvas.width * .33, ctx.canvas.height * .4);
-                for (var side = 0; side < 2; side++) {
-                    angle = PI/5 * rotation;
-                    if (side === 1) {
-                        baseAngle = PI/5 * (rotation - 1);
-                        ctx.save();
-                        ctx.translate((2 * cos(baseAngle) + cos(angle)) * distanceOrigin * 2, -(2 * sin(baseAngle) + sin(angle)) * distanceOrigin * 2);
-                        rotation -= 1;
-                        angle = PI/5 * rotation;
-                    }
-                    ctx.beginPath();
-                    ctx.moveTo(cos(angle) * radius, -sin(angle) * radius);
+                var pentagon = function(rotation) {
                     for (var i = 1; i < 5; i++) {
-                        angle = PI/5 * (2 * i + rotation);
+                        angle = PI/5 * (2 * i -rotation);
                         ctx.lineTo(cos(angle) * radius, -sin(angle) * radius);
                     }
+                };
+                baseAngle = 2*PI/5;
+                radius = sqrt(pow(lineSize, 2) / (pow(sin(baseAngle), 2) + pow(1 - cos(baseAngle), 2)));
+                distanceOrigin = cos(PI/5) * radius * 2;
+                offset = distanceOrigin + radius;
+                ctx.save();
+                ctx.translate(offset, offset);
+                for (var side = 0; side < 2; side++) {
+                    if (side) {
+                        baseAngle = -PI/5;
+                        ctx.save();
+                        ctx.translate((2 * cos(baseAngle) + cos(0)) * distanceOrigin, -(2 * sin(baseAngle) + sin(0)) * distanceOrigin);
+                    }
+                    ctx.beginPath();
+                    angle = PI/5 * -side;
+                    ctx.moveTo(cos(angle) * radius, -sin(angle) * radius);
+                    pentagon(side);
                     ctx.closePath();
                     for (var i = 0; i < 5; i++) {
-                        baseAngle = PI/5 * (2 * i + 1 + rotation);
+                        baseAngle = PI/5 * (2 * i + 1 - side);
                         ctx.save();
-                        ctx.translate(cos(baseAngle) * distanceOrigin * 2, -sin(baseAngle) * distanceOrigin * 2);
-                        for (var j = 0; j < 4; j++) {
-                            angle = PI/5 * (2 * (i + j) - 1 + rotation);
-                            ctx.lineTo(cos(angle) * radius, -sin(angle) * radius);
-                        }
+                        ctx.translate(cos(baseAngle) * distanceOrigin, -sin(baseAngle) * distanceOrigin);
+                        ctx.rotate(PI/5 * (3 - i * 2));
+                        pentagon(side);
                         ctx.restore();
                     }
                     ctx.stroke();
