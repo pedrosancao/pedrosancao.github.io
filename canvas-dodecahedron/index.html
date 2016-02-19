@@ -25,7 +25,42 @@
                         angle = PI/5 * (2 * i -rotation);
                         ctx.lineTo(cos(angle) * radius, -sin(angle) * radius);
                     }
+                    calendar(rotation);
+                }
+                , month = 0, date = new Date()
+                , calendar = function(rotation) {
+                    var offsetX = -.55 * radius, offsetY = -.65 * radius
+                    , spaceX = -offsetX / 3, spaceY = -offsetX / 4
+                    , text, i, compare, weekday, day;
+                    ctx.save();
+                    ctx.rotate((.1*PI) * (1 - 2 * rotation));
+                    date.setMonth(month++);
+                    text = date.toLocaleString('pt-br', {month: 'short'}) + ' ' + date.getFullYear();
+                    text = text.charAt(0).toUpperCase() + text.substr(1);
+                    textCenter(text, 0, offsetY);
+                    offsetY += 1.4 * spaceX;
+                    week = 'DSTQQSS';
+                    for (i = 0; i < week.length; i++) {
+                        ctx.fillStyle = i === 0 ? '#f00' : '#000';
+                        textCenter(week.charAt(i), offsetX + i * spaceX, offsetY);
+                    }
+                    offsetY += spaceY;
+                    compare = new Date(date.getFullYear(), month);
+                    while (date.getTime() < compare.getTime()) {
+                        weekday = date.getDay();
+                        day = date.getDate();
+                        ctx.fillStyle = weekday === 0 ? '#f00' : '#000';
+                        weekday === 0 && day !== 1 && (offsetY += spaceY);
+                        textCenter(day, offsetX + weekday * spaceX, offsetY);
+                        date.setDate(day + 1);
+                    }
+                    offsetY += spaceY;
+                    ctx.restore();
+                }
+                , textCenter = function(text, x, y) {
+                    ctx.fillText(text, x -ctx.measureText(text).width / 2, y);
                 };
+                date.setDate(1);
                 baseAngle = 2*PI/5;
                 radius = sqrt(pow(lineSize, 2) / (pow(sin(baseAngle), 2) + pow(1 - cos(baseAngle), 2)));
                 distanceOrigin = cos(PI/5) * radius * 2;
