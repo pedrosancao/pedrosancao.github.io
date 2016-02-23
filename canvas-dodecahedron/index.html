@@ -18,7 +18,9 @@
         <canvas width="842" height="595"></canvas>
         <script>
             var ctx = document.querySelector('canvas').getContext('2d')
-            , lineSize = 80, baseAngle, angle, radius, distanceOrigin, offset;
+            , lineSize = 100, baseAngle, angle, radius, distanceOrigin, offset
+            , font = ' Ubuntu Mono, sans-serif';
+            console.log(ctx.font);
             with (Math) {
                 var pentagon = function(rotation) {
                     for (var i = 1; i < 5; i++) {
@@ -38,8 +40,9 @@
                     text = date.toLocaleString('pt-br', {month: 'short'}) + ' ' + date.getFullYear();
                     text = text.charAt(0).toUpperCase() + text.substr(1);
                     textCenter(text, 0, offsetY);
-                    offsetY += 1.4 * spaceX;
+                    offsetY += 1.25 * spaceX;
                     week = 'DSTQQSS';
+                    ctx.font = '10px' + font;
                     for (i = 0; i < week.length; i++) {
                         ctx.fillStyle = i === 0 ? '#f00' : '#000';
                         textCenter(week.charAt(i), offsetX + i * spaceX, offsetY);
@@ -49,14 +52,58 @@
                     while (date.getTime() < compare.getTime()) {
                         weekday = date.getDay();
                         day = date.getDate();
-                        ctx.fillStyle = weekday === 0 ? '#f00' : '#000';
+                        ctx.fillStyle = (weekday === 0 || holidays[date.getMonth()][day]) ? '#f00' : '#000';
                         weekday === 0 && day !== 1 && (offsetY += spaceY);
                         textCenter(day, offsetX + weekday * spaceX, offsetY);
                         date.setDate(day + 1);
                     }
                     offsetY += spaceY;
+                    footer(offsetY + spaceY * .3, spaceY);
                     ctx.restore();
                 }
+                , footer = function(offset, space) {
+                    var days = holidays[date.getMonth() - 1];
+                    ctx.font = '8px' + font;
+                    ctx.fillStyle = '#000';
+                    for (var i in days) {
+                        textCenter(i + ' - ' + days[i], 0, offset);
+                        offset += space;
+                    }
+                }
+                , holidays = (function () {
+                    var computus = function (year) {
+                        var table = [
+                            [3, 14], [3,  3], [2, 23], [3, 11], [2, 31], [3, 18], [3,  8],
+                            [2, 28], [3, 16], [3,  5], [2, 25], [3, 13], [3,  2], [2, 22],
+                            [3, 10], [2, 30], [3, 17], [3,  7], [2, 27]
+                        ]
+                        , goldenN = year % 19
+                        , date = new Date(year, table[goldenN][0], table[goldenN][1])
+                        , dates = Array.apply(null, Array(12)).map(function(){return [];});
+                        date.setDate(date.getDate() + 7 - date.getDay());
+                        dates[date.getMonth()][date.getDate()] = ['Páscoa'];
+                        date.setDate(date.getDate() - 2);
+                        dates[date.getMonth()][date.getDate()] = ['Paixão de Cristo'];
+                        date.setDate(date.getDate() - 45);
+                        dates[date.getMonth()][date.getDate()] = ['Carnaval'];
+                        date.setDate(date.getDate() + 107);
+                        dates[date.getMonth()][date.getDate()] = ['Corpus Christi'];
+                        return dates;
+                    }
+                    , holidays = computus(date.getFullYear());
+                    holidays[0][1] = ['Confraternização mundial'];
+                    holidays[0][25] = ['Aniversário de São Paulo'];
+                    holidays[3][21] = ['Tiradentes'];
+                    holidays[4][1] = ['Dia do trabalho'];
+                    holidays[6][6] = ['Revolução de 1932'];
+                    holidays[8][7] = ['Independência do Brasil'];
+                    holidays[9][12] = ['Nossa Senhora Aparecida'];
+                    holidays[10][2] = ['Finados'];
+                    holidays[10][15] = ['Proclamação da República'];
+                    holidays[10][20] = ['Consciência negra'];
+                    holidays[11][25] = ['Natal'];
+                    return holidays;
+                })()
                 , textCenter = function(text, x, y) {
                     ctx.fillText(text, x -ctx.measureText(text).width / 2, y);
                 };
@@ -66,7 +113,7 @@
                 distanceOrigin = cos(PI/5) * radius * 2;
                 offset = distanceOrigin + radius;
                 ctx.save();
-                ctx.translate(offset, offset);
+                ctx.translate(offset, .97 * offset);
                 for (var side = 0; side < 2; side++) {
                     if (side) {
                         baseAngle = -PI/5;
