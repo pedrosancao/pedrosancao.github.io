@@ -11,6 +11,9 @@ body {
 a {
     color: #fff;
 }
+img {
+    max-width: 100%;
+}
 aside.fundo {
     position: fixed;
     top: 0;
@@ -130,7 +133,7 @@ section.portfolio {
 }
 section.portfolio figure {
     margin-bottom: 6em;
-    transition: background-color 0.4s ease;
+    transition: background-color 0.5s ease 0.5s;
     border-radius: 10px;
 }
 section.portfolio figure::after {
@@ -152,16 +155,21 @@ section.portfolio figure:last-child::after {
 section.portfolio figure img {
     display: block;
     margin: 0 auto 1em;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease 0.5s;
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
 }
-section.portfolio figure:hover {
+section.portfolio figure:hover,
+section.portfolio figure.on-screen {
     background-color: rgba(255,255,255,0.1);
 }
-section.portfolio figure:hover img {
+section.portfolio figure:hover img,
+section.portfolio figure.on-screen img {
     -webkit-filter: none;
     filter: none;
+}
+section.portfolio figure figcaption {
+    padding: 0 1em;
 }
 section.portfolio figure figcaption h4 {
     line-height: 2em;
@@ -194,7 +202,7 @@ footer p.copy {
     }
     section.portfolio figure figcaption {
         text-align: left;
-        padding-right: 1em;
+        padding-left: 0;
     }
     section.portfolio figure figcaption::after {
     content: '';
