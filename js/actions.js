@@ -29,36 +29,9 @@
     function mail() {
         var link = document.querySelector('a.mailto'), loaded = false;
         function listener(e) {
-            function loadCaptcha() {
-                var s;
-                if (loaded) {
-                    showCaptcha();
-                } else {
-                    window.captchaCallback = function () {
-                        delete window.captchaCallback;
-                        showCaptcha();
-                        loaded = true;
-                    };
-                    s = document.createElement('script');
-                    s.defer = true;
-                    s.async = true;
-                    s.src = 'https://www.google.com/recaptcha/api.js?hl=ptBR&onload=captchaCallback&render=explicit';
-                    document.body.appendChild(s);
-                }
-            }
-            function showCaptcha() {
-                var container = document.createElement('div');
-                container.className = 'captcha';
-                container.style.top = link.offsetTop + 'px';
-                container.style.left = link.offsetLeft + 'px';
-                document.body.appendChild(container);
-                grecaptcha.render(container, {
-                    'sitekey': '6Ld81v4SAAAAAHGOrau6cMO6eFH0AxHt4hgoVBk4'
-                ,   'callback': function (response) {
-                        validateCaptcha(container, response);
-                    }
-                });
-                window.addEventListener('resize', clearCaptcha, false);
+            function clearCaptcha() {
+                window.removeEventListener('resize', clearCaptcha, false);
+                document.body.removeChild(document.querySelector('.captcha'));
             }
             function validateCaptcha(container, response) {
                 var xhr = new XMLHttpRequest();
@@ -81,9 +54,36 @@
                     xhr.send('response=' + encodeURIComponent(response));
                 }, 300);
             }
-            function clearCaptcha() {
-                window.removeEventListener('resize', clearCaptcha, false);
-                document.body.removeChild(document.querySelector('.captcha'));
+            function showCaptcha() {
+                var container = document.createElement('div');
+                container.className = 'captcha';
+                container.style.top = link.offsetTop + 'px';
+                container.style.left = link.offsetLeft + 'px';
+                document.body.appendChild(container);
+                grecaptcha.render(container, {
+                    'sitekey': '6Ld81v4SAAAAAHGOrau6cMO6eFH0AxHt4hgoVBk4',
+                    'callback': function (response) {
+                        validateCaptcha(container, response);
+                    }
+                });
+                window.addEventListener('resize', clearCaptcha, false);
+            }
+            function loadCaptcha() {
+                var s;
+                if (loaded) {
+                    showCaptcha();
+                } else {
+                    window.captchaCallback = function () {
+                        delete window.captchaCallback;
+                        showCaptcha();
+                        loaded = true;
+                    };
+                    s = document.createElement('script');
+                    s.defer = true;
+                    s.async = true;
+                    s.src = 'https://www.google.com/recaptcha/api.js?hl=ptBR&onload=captchaCallback&render=explicit';
+                    document.body.appendChild(s);
+                }
             }
             e.preventDefault();
             loadCaptcha();
@@ -94,4 +94,25 @@
         link.addEventListener('click', listener, false);
     }
     mail();
+
+    function touchBehavior() {
+        var els = [];
+        if (document.documentElement.ontouchstart !== undefined) {
+            els = document.querySelectorAll('section.portfolio figure');
+            document.addEventListener('scroll', function () {
+                var winHeight = window.innerHeight || document.documentElement.clientHeight,
+                    winTop = window.scrollY,
+                    winBottom = winTop + winHeight,
+                    i;
+                for (i = 0; i < els.length; i += 1) {
+                    if (els[i].offsetTop <= winBottom && els[i].offsetTop + els[i].offsetHeight >= winTop) {
+                        els[i].className = 'on-screen';
+                    } else {
+                        els[i].className = '';
+                    }
+                }
+            }, false);
+        }
+    }
+    touchBehavior();
 })();
