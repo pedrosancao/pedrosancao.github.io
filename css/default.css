@@ -1,10 +1,10 @@
 html, body, ul, li, p,
-h1, h2, h3, h4, blockquote {
+h1, h2, h3, h4, blockquote, figure {
     margin: 0;
     padding: 0;
 }
 body {
-    font-family: 'PT Mono', 'Courier New', Courier, monospace;
+    font-family: 'PT Mono', 'Ubuntu Mono', 'Courier New', Courier, monospace;
     text-align: center;
     color: #efe;
 }
@@ -128,15 +128,43 @@ section.perfil section.foto span::after {
 section.portfolio {
     background-color: #687276;
 }
+section.portfolio figure {
+    margin-bottom: 6em;
+    transition: background-color 0.4s ease;
+    border-radius: 10px;
+}
+section.portfolio figure::after {
+    content: '';
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 1px;
+    top: 3em;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,0.2), rgba(0,0,0,0));
+}
+section.portfolio figure:last-child {
+    margin-bottom: 0;
+    border-bottom: 1px transparent solid;
+}
+section.portfolio figure:last-child::after {
+    content: none;
+}
 section.portfolio figure img {
     display: block;
     margin: 0 auto 1em;
+    transition: all 0.4s ease;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
 }
-section.portfolio figure figcaption {
-    margin-bottom: 2em;
+section.portfolio figure:hover {
+    background-color: rgba(255,255,255,0.1);
 }
-section.portfolio figure figcaption:last-child {
-    margin-bottom: 0;
+section.portfolio figure:hover img {
+    -webkit-filter: none;
+    filter: none;
+}
+section.portfolio figure figcaption h4 {
+    line-height: 2em;
 }
 section.contato {
     background-color: #54504d;
@@ -159,27 +187,24 @@ footer p {
 footer p.copy {
     font-size: 1.5em;
 }
-@media screen and (min-width: 800px) {
-    section.portfolio figure::after {
-        content: '';
-        visibility: hidden;
-        display: block;
-        height: 0;
-        clear: both;
-        margin-bottom: 2em;
-    }
-    section.portfolio figure:last-child::after {
-        margin-bottom: 0;
-    }
+@media (min-width: 800px) {
     section.portfolio figure img {
         float: left;
         margin: 0 1em 0 0;
     }
     section.portfolio figure figcaption {
         text-align: left;
+        padding-right: 1em;
+    }
+    section.portfolio figure figcaption::after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+        clear: both;
     }
 }
-@media screen and (min-width: 1000px) {
+@media (min-width: 1000px) {
     body > section {
         padding-right: 50px;
         padding-left: 50px;
