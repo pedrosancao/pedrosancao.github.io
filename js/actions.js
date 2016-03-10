@@ -55,10 +55,9 @@
                 }, 300);
             }
             function showCaptcha() {
-                var container = document.createElement('div');
+                var container = document.createElement('div'),
+                    width = window.innerWidth || document.documentElement.clientWidth;
                 container.className = 'captcha';
-                container.style.top = link.offsetTop + 'px';
-                container.style.left = link.offsetLeft + 'px';
                 document.body.appendChild(container);
                 grecaptcha.render(container, {
                     'sitekey': '6Ld81v4SAAAAAHGOrau6cMO6eFH0AxHt4hgoVBk4',
@@ -66,6 +65,13 @@
                         validateCaptcha(container, response);
                     }
                 });
+                container.style.top = (link.offsetTop - container.offsetHeight / 3) + 'px';
+                container.style.left = ((width - container.offsetWidth) / 2) + 'px';
+                if (container.offsetWidth > width - 10) {
+                    container.style.left = '5px';
+                    container.style.transformOrigin = '0 0';
+                    container.style.transform = 'scale(' + ((width - 10) / container.offsetWidth).toString().substr(0,6) + ')';
+                }
                 window.addEventListener('resize', clearCaptcha, false);
             }
             function loadCaptcha() {
@@ -98,6 +104,7 @@
     function touchBehavior() {
         var els = [];
         if (document.documentElement.ontouchstart !== undefined) {
+            document.body.className = 'touch';
             els = document.querySelectorAll('section.portfolio figure');
             document.addEventListener('scroll', function () {
                 var winHeight = window.innerHeight || document.documentElement.clientHeight,

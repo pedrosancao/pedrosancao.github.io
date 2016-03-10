@@ -13,6 +13,7 @@ a {
 }
 img {
     max-width: 100%;
+    height: auto;
 }
 aside.fundo {
     position: fixed;
@@ -133,7 +134,7 @@ section.portfolio {
 }
 section.portfolio figure {
     margin-bottom: 6em;
-    transition: background-color 0.5s ease 0.5s;
+    transition: background-color 0.5s ease;
     border-radius: 10px;
 }
 section.portfolio figure::after {
@@ -155,9 +156,12 @@ section.portfolio figure:last-child::after {
 section.portfolio figure img {
     display: block;
     margin: 0 auto 1em;
-    transition: all 0.5s ease 0.5s;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-property: -webkit-filter, filter, opacity;
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
+    opacity: 0.4;
 }
 section.portfolio figure:hover,
 section.portfolio figure.on-screen {
@@ -167,6 +171,13 @@ section.portfolio figure:hover img,
 section.portfolio figure.on-screen img {
     -webkit-filter: none;
     filter: none;
+    opacity: 1;
+}
+.touch section.portfolio figure {
+    transition-delay: 0.5s;
+}
+.touch section.portfolio figure img {
+    transition-delay: 0.5s;
 }
 section.portfolio figure figcaption {
     padding: 0 1em;
@@ -179,7 +190,7 @@ section.contato {
 }
 .captcha {
     position: absolute;
-    padding: 7px 5px 5px 6px;
+    padding: 4px 2px 2px 4px;
     background-color: rgba(204,204,204,.8);
     border: 1px rgba(51,51,51,.8) solid;
     border-radius: 4px;
