@@ -1,50 +1,110 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Sanção Co. - I'm gonna do an Internet</title>
-		<meta charset="utf-8">
-		<link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
-		<style>
-			body {
-				font-family: 'PT Mono', 'Courier New', Courier, monospace;
-			}
-			h1 {
-				margin: 10px 0;
-			}
-			h2 {
-				margin: 5px 0;
-			}
-			.logo {
-				text-align: center;
-            }
-			.logo a {
-				position: relative;
-                display: inline-block;
-			}
-			.logo a::before {
-				content: '';
-				position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                box-shadow: inset 0 0 20px 10px #fff;
-			}
-            .logo a img {
-                vertical-align: top;
-            }
-		</style>
-	</head>
-	<body>
-        <div class="logo">
-            <a href="./"><img src="images/do_an_internet.jpg" alt=""/></a>
-            <h1>Sanção Co.</h1>
-            <h2>I'm gonna do an Internet</h2>
-        </div>
-		<script>
-			(function(s,a,n,c,ao,dot,co){s['GoogleAnalyticsObject']=ao;s[ao]=s[ao]||function(){(s[ao].q=s[ao].q||[]).push(arguments)},s[ao].l=1*new Date();dot=a.createElement(n),co=a.getElementsByTagName(n)[0];dot.async=1;dot.src=c;co.parentNode.insertBefore(dot,co)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			ga('create', 'UA-57279934-1', 'auto');
-			ga('send', 'pageview');
-		</script>
-	</body>
+<html lang="pt-BR">
+    <head>
+        <title>Pedro Sanção - Desenvolvedor Full Stack</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link href="http://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet" type="text/css">
+        <link href="./css/default.css" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <aside class="fundo"></aside>
+        <header>
+            <div>
+                <h1>Pedro Sanção</h1>
+                <h2>Desenvolvedor <em>Full Stack</em></h2>
+                <blockquote>Eu vou fazer a Internet!</blockquote>
+            </div>
+        </header>
+        <section class="perfil">
+            <div class="container">
+                <h3>Perfil</h3>
+                <section>
+                    <h4>Sobre mim</h4>
+                    <p>Sou um desenvolvedor versátil focado em tecnologias web com mais de 5 anos de experiência.</p>
+                    <p>Tenho grande facilidade de aprendizado e estou sempre estudando novas tecnologias. Nos projetos que trabalho procuro aplicar boas práticas de desenvolvimento, segurança e criptografia.</p>
+                    <p>Sou fã do controle de versão GIT, o qual utilizo e incentivo o uso. Gosto de participar na comunidade de código aberto.</p>
+                </section>
+                <section class="foto">
+                    <span><img src="https://s.gravatar.com/avatar/990976037e271ce8dd878f000ff0453c?s=200" alt="Pedro Sanção"></span>
+                </section>
+                <section>
+                    <h4>Detalhes</h4>
+                    <p><strong>Formação:</strong><br>IFSP - Instituto Federal de São Paulo</p>
+                    <p><strong>Localização:</strong><br>São Paulo, São Paulo, Brasil, Terra</p>
+                    <p><strong>S.O. favorito:</strong><br>Ubuntu S2</p>
+                </section>
+            </div>
+        </section>
+        <section class="portfolio">
+            <div class="container">
+                <h3>Alguns dos meus trabalhos</h3>
+                <figure>
+                    <img src="images/asciimath.png" width="300" height="240" alt="Plugin AsciiMath para TinyMCE 4">
+                    <figcaption>
+                        <h4><a href="http://github.sancao.co/asciimath-tinymce4/" target="_blank">Plugin AsciiMath para TinyMCE 4</a></h4>
+                        <p>É um plugin que permite incluir formulas matemáticas no editor <em><abbr title="What You See Is What You Get">WYSIWYG</abbr></em> TinyMCE 4. Utiliza sintaxe AsciiMath e MathJax para exibição. Veja a <a href="http://github.sancao.co/asciimath-tinymce4/demo.html" target="_blank">Demonstração</a>.</p>
+                        <p>Já existe um editor para o TinyMCE 3, mas não há a compatibilidade com a versão 4, causando a necessidade de desenvolver um novo plugin.</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/php-color-extractor.png" width="300" height="240" alt="PHP Color Extractor">
+                    <figcaption>
+                        <h4><a href="https://github.com/pedrosancao/php-color-extractor" target="_blank"><em>PHP Color Extractor</em></a></h4>
+                        <p>Uma pequena bilbioteca PHP para extrair as cores presentes em imagens, possui configurações de sensibilidade e conta com diversos algoritimos de redução e agrupamento de cores.</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+        <section class="portfolio collapse">
+            <div class="container">
+                <h3>Forks - Projetos que contribuí</h3>
+                <figure>
+                    <img src="images/bootstrap.png" width="300" height="240" alt="Bootstrap">
+                    <figcaption>
+                        <h4><a href="https://github.com/pedrosancao/bootstrap-ptBR" target="_blank">Bootstrap</a></h4>
+                        <p>Tradução da documentação, ampliando o acesso às informações oficiais da uma das bibliotecas CSS mais populares.</p>
+                        <p>O projeto está em andamento e novos colaboradores são muito bem vindos.</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/jquery-autogrow.png" width="300" height="240" alt="jQuery Autogrow">
+                    <figcaption>
+                        <h4><a href="https://github.com/pedrosancao/autogrow" target="_blank">jQuery Autogrow</a></h4>
+                        <p>Um plugin extremamente leve para aumentar e diminuir a altura de elementos <code>&lt;textarea&gt;</code> de acordo com o conteúdo, para que não seja exibida barra de rolagem.</p>
+                        <p>Adicionado suporte a funções <em>callback</em> depois do redimensionamento.</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/php-oauth-server.png" width="300" height="240" alt="PHP OAuth2 Server">
+                    <figcaption>
+                        <h4><a href="https://github.com/pedrosancao/oauth2-server-php" target="_blank"><em>PHP OAuth2 Server</em></a></h4>
+                        <p>Implementação em PHP de um servidor OAuth2. Foram realizadas melhorias para permitir a integração com outros sistemas existentes, com compartilhamento de conexão PDO.</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+        <section class="contato">
+            <div class="container">
+                <h3>Contatos</h3>
+                <p><i class="fa fa-at"></i> <a href="#" class="mailto">Ver email</a></p>
+                <p><i class="fa fa-linkedin"></i> <a href="https://linkedin.com/in/pedrosancao" target="_blank">linkedin.com/in/pedrosancao</a></p>
+                <p><i class="fa fa-twitter"></i> <a href="https://twitter.com/pedrosancao" target="_blank">twitter.com/pedrosancao</a></p>
+                <p><i class="fa fa-github"></i> <a href="https://github.com/pedrosancao" target="_blank">github.com/pedrosancao</a></p>
+                <p><i class="fa fa-stack-overflow"></i> <a href="http://pt.stackoverflow.com/users/13561/san%c3%a7%c3%a3o" target="_blank">pt.stackoverflow.com/sanção</a></p>
+            </div>
+        </section>
+        <footer>
+            <p class="copy">Copyright &copy; 2016 Sancao Co. - criado por Pedro Sanção</p>
+            <p>HTML5 | CSS3 | JavaScript | Desenvolvedor Full Stack | PHP</p>
+            <p><a href="https://flic.kr/p/bBsyor" target="_blank">Vista - Parque do Ibirapuera</a> por Flávio / <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/" target="_blank">CC BY-NC-ND 2.0</a></p> 
+        </footer>
+        <script src="./js/actions.js"></script>
+        <script>
+            (function(s,a,n,ca,o,dot,co){s['GoogleAnalyticsObject']=o;s[o]=s[o]||function(){(s[o].q=s[o].q||[]).push(arguments)},s[o].l=1*new Date();dot=a.createElement(n),co=a.getElementsByTagName(n)[0];dot.async=1;dot.src=ca;co.parentNode.insertBefore(dot,co)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-57279934-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
 </html>
