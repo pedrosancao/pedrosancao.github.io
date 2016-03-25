@@ -220,10 +220,10 @@ footer p.copy {
         padding-left: 0;
     }
     section.portfolio figure figcaption::after {
-    content: '';
-    display: block;
-    visibility: hidden;
-    height: 0;
+        content: '';
+        display: block;
+        visibility: hidden;
+        height: 0;
         clear: both;
     }
 }
@@ -252,6 +252,18 @@ footer p.copy {
         text-indent: 1em;
     }
     section.perfil section.foto {
+        flex-grow: 1;
+    }
+}
+@media (min-width: 600px) {
+    section.contato .flexbox {
+        width: 400px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    section.contato .flexbox p {
+        flex-basis: 50%;
         flex-grow: 1;
     }
 }
