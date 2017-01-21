@@ -49,8 +49,8 @@
                                 }
                             }
                         } else {
-							alert('Ah não! Aconteceu um erro. Por favor tente novamente mais tarde. :)');
-						}
+                            alert('Ah não! Aconteceu um erro. Por favor tente novamente mais tarde. :)');
+                        }
                         clearCaptcha(container);
                     }
                 };
