@@ -49,7 +49,7 @@
                                 }
                             }
                         } else {
-                            alert('Ah n„o! Aconteceu um erro. Por favor tente novamente mais tarde. :)');
+                            alert('Ah n√£o! Aconteceu um erro. Por favor tente novamente mais tarde. :)');
                         }
                         clearCaptcha(container);
                     }
