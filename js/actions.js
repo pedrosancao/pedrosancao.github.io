@@ -35,18 +35,22 @@
             }
             function validateCaptcha(container, response) {
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'http://sancao.co/_/show_email.php');
+                xhr.open('POST', 'http://sancao.com.br/_/show_email.php');
                 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function () {
-                    if (this.readyState === 4 && this.status === 200) {
-                        if (this.responseText.length) {
-                            link.textContent = this.responseText;
-                            link.href = 'mailto:' + this.responseText;
-                            link.removeEventListener('click', listener, false);
-                            if (typeof ga === 'function') {
-                                ga('send', 'event', 'link', 'click', 'ver email');
+                    if (this.readyState === 4) {
+                        if (this.status === 200) {
+                            if (this.responseText.length) {
+                                link.textContent = this.responseText;
+                                link.href = 'mailto:' + this.responseText;
+                                link.removeEventListener('click', listener, false);
+                                if (typeof ga === 'function') {
+                                    ga('send', 'event', 'link', 'click', 'ver email');
+                                }
                             }
-                        }
+                        } else {
+							alert('Ah não! Aconteceu um erro. Por favor tente novamente mais tarde. :)');
+						}
                         clearCaptcha(container);
                     }
                 };
