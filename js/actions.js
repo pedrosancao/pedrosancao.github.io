@@ -35,7 +35,7 @@
             }
             function validateCaptcha(container, response) {
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'http://sancao.com.br/_/show_email.php');
+                xhr.open('POST', 'https://sancao.com.br/_/show_email.php');
                 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function () {
                     if (this.readyState === 4) {
