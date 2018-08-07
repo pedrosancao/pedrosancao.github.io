@@ -1,9 +1,9 @@
-(function () {
+(function() {
     'use strict';
     function setHeight() {
         var height = window.innerHeight || document.documentElement.clientHeight;
         if (height) {
-            document.querySelector('header div').style.height = height + 'px';
+            document.querySelector('header div').style.height = Math.max(height, 400) + 'px';
         }
     }
     window.addEventListener('resize', setHeight, false);
@@ -37,7 +37,7 @@
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', 'https://sancao.com.br/_/show_email.php');
                 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function () {
+                xhr.onreadystatechange = function() {
                     if (this.readyState === 4) {
                         if (this.status === 200) {
                             if (this.responseText.length) {
@@ -54,7 +54,7 @@
                         clearCaptcha(container);
                     }
                 };
-                setTimeout(function () {
+                setTimeout(function() {
                     xhr.send('response=' + encodeURIComponent(response));
                 }, 300);
             }
@@ -65,7 +65,7 @@
                 document.body.appendChild(container);
                 grecaptcha.render(container, {
                     'sitekey': '6Ld81v4SAAAAAHGOrau6cMO6eFH0AxHt4hgoVBk4',
-                    'callback': function (response) {
+                    'callback': function(response) {
                         validateCaptcha(container, response);
                     }
                 });
@@ -83,7 +83,7 @@
                 if (loaded) {
                     showCaptcha();
                 } else {
-                    window.captchaCallback = function () {
+                    window.captchaCallback = function() {
                         delete window.captchaCallback;
                         showCaptcha();
                         loaded = true;
@@ -106,24 +106,19 @@
     mail();
 
     function touchBehavior() {
-        var els = [];
+        var els = document.querySelectorAll('section.portfolio figure');
         if (document.documentElement.ontouchstart !== undefined) {
-            document.body.className = 'touch';
-            els = document.querySelectorAll('section.portfolio figure');
-            document.addEventListener('scroll', function () {
-                var winHeight = window.innerHeight || document.documentElement.clientHeight,
-                    winTop = window.scrollY,
-                    winBottom = winTop + winHeight,
-                    i;
-                for (i = 0; i < els.length; i += 1) {
-                    if (els[i].offsetTop <= winBottom && els[i].offsetTop + els[i].offsetHeight >= winTop) {
-                        els[i].className = 'on-screen';
-                    } else {
-                        els[i].className = '';
-                    }
-                }
-            }, false);
-        }
+			document.body.className = 'touch';
+		}
+		document.addEventListener('scroll', function() {
+			var winHeight = window.innerHeight || document.documentElement.clientHeight,
+			    winTop = window.scrollY,
+			    winBottom = winTop + winHeight;
+			Array.prototype.forEach.call(els, function(el) {
+				var top = el.offsetTop + el.offsetParent.offsetTop, bottom = top + el.offsetHeight;
+				el.className = (top <= winBottom && bottom >= winTop) ? 'on-screen' : '';
+			});
+		}, false);
     }
     touchBehavior();
 })();

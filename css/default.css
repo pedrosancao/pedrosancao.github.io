@@ -156,7 +156,7 @@ section.portfolio::before {
 }
 section.portfolio figure {
     margin-bottom: 6em;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease 0.25s;
     border-radius: 10px;
 	background-color: rgba(255,255,255,0.05);
 }
@@ -183,15 +183,14 @@ section.portfolio figure img {
     transition-duration: 0.5s;
     transition-timing-function: ease;
     transition-property: -webkit-filter, filter, opacity;
+    transition-delay: 0.25s;
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
     opacity: 0.4;
 }
-section.portfolio figure:hover,
 section.portfolio figure.on-screen {
     background-color: rgba(255,255,255,0.2);
 }
-section.portfolio figure:hover img,
 section.portfolio figure.on-screen img {
     -webkit-filter: none;
     filter: none;
