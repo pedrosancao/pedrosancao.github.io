@@ -18,19 +18,12 @@ img {
 .no-wrap {
     white-space: nowrap;
 }
-aside.fundo {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+header {
     background-image: url(../images/background.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-}
-header {
+    background-attachment: fixed;
     display: table;
     width: 100%;
 }
@@ -72,12 +65,12 @@ blockquote::after {
 body > section {
     padding: 50px 20px;
 }
-body > section.collapse {
-    padding-top: 0;
-}
 .container {
     max-width: 1250px;
     margin: auto;
+}
+.container + .container {
+	padding-top: 50px;
 }
 section h3 {
     font-size: 2.7em;
@@ -104,6 +97,14 @@ section p {
     line-height: 1.3em;
     margin: 0.6em 0;
 }
+section ul {
+	list-style-position: inside;
+}
+section li {
+	line-height: 1.3em;
+	text-align: left;
+    margin: 0.4em 0;
+}
 /* color palette: http://www.color-hex.com/color-palette/15760 */
 section.perfil {
     background-color: #2f5653;
@@ -111,6 +112,9 @@ section.perfil {
 section.perfil section {
     padding: 0 30px;
     margin-bottom: 2em;
+}
+section.perfil section p {
+	text-align: justify;
 }
 section.perfil section:last-child {
     margin-bottom: 0;
@@ -133,12 +137,28 @@ section.perfil section.foto span::after {
     border-radius: 100px;
 }
 section.portfolio {
-    background-color: #687276;
+	position: relative;
+    background-color: rgba(104, 114, 118, .97);
+}
+section.portfolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	z-index: -1;
+    background-image: url(../images/background-portfolio.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 section.portfolio figure {
     margin-bottom: 6em;
     transition: background-color 0.5s ease;
     border-radius: 10px;
+	background-color: rgba(255,255,255,0.05);
 }
 section.portfolio figure::after {
     content: '';
@@ -159,6 +179,7 @@ section.portfolio figure:last-child::after {
 section.portfolio figure img {
     display: block;
     margin: 0 auto 1em;
+	border-radius: 10px 0 0 10px;
     transition-duration: 0.5s;
     transition-timing-function: ease;
     transition-property: -webkit-filter, filter, opacity;
@@ -168,7 +189,7 @@ section.portfolio figure img {
 }
 section.portfolio figure:hover,
 section.portfolio figure.on-screen {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.2);
 }
 section.portfolio figure:hover img,
 section.portfolio figure.on-screen img {
@@ -248,11 +269,13 @@ footer p.copy {
         margin-bottom: 0;
     }
     section.perfil section p {
-        text-align: left;
         text-indent: 1em;
     }
     section.perfil section.foto {
         flex-grow: 1;
+    }
+    section.perfil section.foto span {
+		margin-top: 3em;
     }
 }
 @media (min-width: 600px) {
