@@ -105,20 +105,28 @@
     }
     mail();
 
-    function touchBehavior() {
+    function portfolioBehavior() {
         var els = document.querySelectorAll('section.portfolio figure');
         if (document.documentElement.ontouchstart !== undefined) {
-			document.body.className = 'touch';
-		}
-		document.addEventListener('scroll', function() {
-			var winHeight = window.innerHeight || document.documentElement.clientHeight,
-			    winTop = window.scrollY,
-			    winBottom = winTop + winHeight;
-			Array.prototype.forEach.call(els, function(el) {
-				var top = el.offsetTop + el.offsetParent.offsetTop, bottom = top + el.offsetHeight;
-				el.className = (top <= winBottom && bottom >= winTop) ? 'on-screen' : '';
-			});
-		}, false);
+            document.body.className = 'touch';
+        }
+        document.addEventListener('scroll', function() {
+            var winHeight = window.innerHeight || document.documentElement.clientHeight,
+                winTop = window.scrollY,
+                winBottom = winTop + winHeight;
+            Array.prototype.forEach.call(els, function(el) {
+                var top = el.offsetTop + el.offsetParent.offsetTop, bottom = top + el.offsetHeight;
+                el.className = (top <= winBottom && bottom >= winTop) ? 'on-screen' : '';
+            });
+        }, false);
+        Array.prototype.forEach.call(els, function(el) {
+            el.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'A') {
+                    let link = this.querySelector('a');
+                    link.target === '_blank' ? open(link.href) : location = link.href;
+                }
+            }, false);
+        });
     }
-    touchBehavior();
+    portfolioBehavior();
 })();

@@ -50,6 +50,7 @@ blockquote {
     font-size: 1.5em;
     line-height: 2.5em;
     quotes: "\201C""\201E";
+    white-space: pre;
 }
 blockquote::before {
     content: open-quote;
@@ -70,7 +71,7 @@ body > section {
     margin: auto;
 }
 .container + .container {
-	padding-top: 50px;
+    padding-top: 50px;
 }
 section h3 {
     font-size: 2.7em;
@@ -98,11 +99,11 @@ section p {
     margin: 0.6em 0;
 }
 section ul {
-	list-style-position: inside;
+    list-style-position: inside;
 }
 section li {
-	line-height: 1.3em;
-	text-align: left;
+    line-height: 1.3em;
+    text-align: left;
     margin: 0.4em 0;
 }
 /* color palette: http://www.color-hex.com/color-palette/15760 */
@@ -114,7 +115,7 @@ section.perfil section {
     margin-bottom: 2em;
 }
 section.perfil section p {
-	text-align: justify;
+    text-align: justify;
 }
 section.perfil section:last-child {
     margin-bottom: 0;
@@ -137,7 +138,7 @@ section.perfil section.foto span::after {
     border-radius: 100px;
 }
 section.portfolio {
-	position: relative;
+    position: relative;
     background-color: rgba(104, 114, 118, .97);
 }
 section.portfolio::before {
@@ -147,7 +148,7 @@ section.portfolio::before {
     right: 0;
     bottom: 0;
     left: 0;
-	z-index: -1;
+    z-index: -1;
     background-image: url(../images/background-portfolio.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -156,9 +157,10 @@ section.portfolio::before {
 }
 section.portfolio figure {
     margin-bottom: 6em;
-    transition: background-color 0.5s ease 0.25s;
     border-radius: 10px;
-	background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255,255,255,0.05);
+    cursor: pointer;
+    transition: background-color 0.5s ease 0.25s;
 }
 section.portfolio figure::after {
     content: '';
@@ -179,7 +181,7 @@ section.portfolio figure:last-child::after {
 section.portfolio figure img {
     display: block;
     margin: 0 auto 1em;
-	border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
     transition-duration: 0.5s;
     transition-timing-function: ease;
     transition-property: -webkit-filter, filter, opacity;
@@ -274,7 +276,7 @@ footer p.copy {
         flex-grow: 1;
     }
     section.perfil section.foto span {
-		margin-top: 3em;
+        margin-top: 3em;
     }
 }
 @media (min-width: 600px) {
