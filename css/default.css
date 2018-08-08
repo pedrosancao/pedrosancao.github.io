@@ -111,11 +111,12 @@ section.perfil {
     background-color: #2f5653;
 }
 section.perfil section {
-    padding: 0 30px;
+    padding: 0 1em;
     margin-bottom: 2em;
 }
 section.perfil section p {
     text-align: justify;
+    text-indent: 1em;
 }
 section.perfil section:last-child {
     margin-bottom: 0;
@@ -156,6 +157,7 @@ section.portfolio::before {
     background-attachment: fixed;
 }
 section.portfolio figure {
+    padding: 1em 1em 0;
     margin-bottom: 6em;
     border-radius: 10px;
     background-color: rgba(255,255,255,0.05);
@@ -181,7 +183,7 @@ section.portfolio figure:last-child::after {
 section.portfolio figure img {
     display: block;
     margin: 0 auto 1em;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px;
     transition-duration: 0.5s;
     transition-timing-function: ease;
     transition-property: -webkit-filter, filter, opacity;
@@ -205,7 +207,7 @@ section.portfolio figure.on-screen img {
     transition-delay: 0.5s;
 }
 section.portfolio figure figcaption {
-    padding: 0 1em;
+    margin-bottom: 1em;
 }
 section.portfolio figure figcaption h4 {
     line-height: 2em;
@@ -232,14 +234,30 @@ footer p {
 footer p.copy {
     font-size: 1.5em;
 }
+@media (max-width: 340px) {
+    section.portfolio figure {
+        padding: 0;
+    }
+    section.portfolio figure img {
+        border-radius: 10px 10px 0 0;
+    }
+    section.portfolio figure figcaption {
+        padding: 0 1em;
+    }
+}
 @media (min-width: 800px) {
+    section.portfolio figure {
+        padding: 0;
+    }
     section.portfolio figure img {
         float: left;
         margin: 0 1em 0 0;
+        border-radius: 10px 0 0 10px;
     }
     section.portfolio figure figcaption {
         text-align: left;
-        padding-left: 0;
+        margin-bottom: 0;
+        padding-right: 1em;
     }
     section.portfolio figure figcaption::after {
         content: '';
@@ -247,6 +265,11 @@ footer p.copy {
         visibility: hidden;
         height: 0;
         clear: both;
+    }
+}
+@media (max-width: 380px) {
+    section.perfil section {
+        padding: 0;
     }
 }
 @media (min-width: 1000px) {
@@ -266,11 +289,7 @@ footer p.copy {
     }
     section.perfil section {
         flex: 2 0;
-        padding: 0 15px;
         margin-bottom: 0;
-    }
-    section.perfil section p {
-        text-indent: 1em;
     }
     section.perfil section.foto {
         flex-grow: 1;
