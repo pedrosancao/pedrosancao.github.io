@@ -134,7 +134,7 @@
                 distanceOrigin = cos(PI/5) * radius * 2;
                 offset = distanceOrigin + radius;
                 ctx.save();
-                ctx.translate(offset + 1, sin(.6*PI) * offset + 1);
+                ctx.translate(offset + 1, sin(3*PI/5) * offset + 1);
                 for (var side = 0; side < 2; side++) {
                     if (side) {
                         baseAngle = -PI/5;
@@ -145,15 +145,15 @@
                     angle = PI/5 * -side;
                     ctx.moveTo(cos(angle) * radius, -sin(angle) * radius);
                     pentagon(side);
-                    ctx.closePath();
                     for (var i = 0; i < 5; i++) {
-                        baseAngle = PI/5 * (2 * i + 1 - side);
+                        baseAngle = PI/5 * (2 * i - 1 - side);
                         ctx.save();
                         ctx.translate(cos(baseAngle) * distanceOrigin, -sin(baseAngle) * distanceOrigin);
-                        ctx.rotate(PI/5 * (3 - i * 2));
+                        ctx.rotate(PI/5 * (5 - i * 2));
                         pentagon(side);
                         ctx.restore();
                     }
+                    ctx.closePath();
                     ctx.stroke();
                 }
             }
