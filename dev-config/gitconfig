@@ -1,0 +1,10 @@
+[user]
+	name = Pedro Sanção
+	email = pedrosancao@users.noreply.github.com
+[core]
+	editor = vi
+[alias]
+	date-graph = log --format='%h [%ad] %d%s (%an)' --date=short --decorate --graph --all
+	graph = log --oneline --decorate --graph --all
+	untrack = update-index --assume-unchanged
+	ff = merge --ff-only
