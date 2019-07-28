@@ -35,7 +35,7 @@
             }
             function validateCaptcha(container, response) {
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'https://sancao.com.br/_/show_email.php');
+                xhr.open('POST', 'https://us-central1-xenon-sentry-248115.cloudfunctions.net/pedrosancao-show-email');
                 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function() {
                     if (this.readyState === 4) {
