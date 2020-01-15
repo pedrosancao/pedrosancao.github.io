@@ -4,7 +4,8 @@
 [core]
 	editor = vi
 [alias]
-	date-graph = log --format='%h [%ad] %d%s (%an)' --date=short --decorate --graph --all
-	graph = log --oneline --decorate --graph --all
-	untrack = update-index --assume-unchanged
-	ff = merge --ff-only
+        date-graph = log --format='%h [%ad] %d%s (%an)' --date=short --decorate --graph --all
+        graph = log --oneline --decorate --graph --all
+        untrack = update-index --assume-unchanged
+        horas = "log --format='%s; commit %h' --reverse"
+        ff = merge --ff-only
