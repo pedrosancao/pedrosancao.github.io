@@ -162,7 +162,7 @@ section.portfolio figure {
     border-radius: 10px;
     background-color: rgba(255,255,255,0.05);
     cursor: pointer;
-    transition: background-color 0.5s ease 0.25s;
+    transition: background-color 0.5s ease;
 }
 section.portfolio figure::after {
     content: '';
@@ -187,22 +187,21 @@ section.portfolio figure img {
     transition-duration: 0.5s;
     transition-timing-function: ease;
     transition-property: -webkit-filter, filter, opacity;
-    transition-delay: 0.25s;
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
     opacity: 0.4;
 }
-section.portfolio figure.on-screen {
+section.portfolio figure:hover,
+.touch section.portfolio figure.on-screen {
     background-color: rgba(255,255,255,0.2);
 }
-section.portfolio figure.on-screen img {
+section.portfolio figure:hover img,
+.touch section.portfolio figure.on-screen img {
     -webkit-filter: none;
     filter: none;
     opacity: 1;
 }
-.touch section.portfolio figure {
-    transition-delay: 0.5s;
-}
+.touch section.portfolio figure,
 .touch section.portfolio figure img {
     transition-delay: 0.5s;
 }

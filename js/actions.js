@@ -116,6 +116,9 @@
                 winBottom = winTop + winHeight;
             Array.prototype.forEach.call(els, function(el) {
                 var top = el.offsetTop + el.offsetParent.offsetTop, bottom = top + el.offsetHeight;
+				var offset = 0.2 * el.offsetHeight;
+				top += offset;
+				bottom -= offset;
                 el.className = (top <= winBottom && bottom >= winTop) ? 'on-screen' : '';
             });
         }, false);
