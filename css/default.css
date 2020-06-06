@@ -27,6 +27,11 @@ header {
     display: table;
     width: 100%;
 }
+@media (orientation: portrait) {
+    header {
+		background-image: url(../images/background-cropped.jpg);
+	}
+}
 header > div {
     display: table-cell;
     vertical-align: middle;
@@ -44,7 +49,8 @@ header h1 {
 }
 header h2 {
     font-size: 2em;
-    line-height: 2em;
+    line-height: 1.5em;
+	margin-bottom: 0.5em;
 }
 header .social {
     margin-top: 4em;
@@ -56,7 +62,7 @@ header .social a {
 blockquote {
     margin: 0 1.5em;
     font-size: 1.5em;
-    line-height: 2.5em;
+    line-height: 1.75em;
     quotes: "\201C""\201E";
     white-space: pre-wrap;
 }
