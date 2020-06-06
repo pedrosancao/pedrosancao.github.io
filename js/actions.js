@@ -58,7 +58,7 @@
                                 link.href = 'mailto:' + this.responseText;
                                 link.removeEventListener('click', listener, false);
                                 if (typeof ga === 'function') {
-                                    ga('send', 'event', 'link', 'click', 'ver email');
+                                    ga('send', 'event', 'see-email');
                                 }
                             }
                         } else {
@@ -114,7 +114,7 @@
             e.preventDefault();
             loadCaptcha();
             if (typeof ga === 'function') {
-                ga('send', 'event', 'link', 'click', 'abrir captcha');
+                ga('send', 'event', 'request-email');
             }
         }
         link.addEventListener('click', listener, false);
