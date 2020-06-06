@@ -27,7 +27,7 @@ header {
     display: table;
     width: 100%;
 }
-@media (orientation: portrait) {
+@media (max-width: 830px) and (orientation: portrait) {
     header {
 		background-image: url(../images/background-cropped.jpg);
 	}
