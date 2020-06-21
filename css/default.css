@@ -19,12 +19,12 @@ img {
     white-space: nowrap;
 }
 header {
-    background: fixed url(../images/background.jpg) center/cover no-repeat;
+    background: fixed url(../images/background.webp) center/cover no-repeat;
     width: 100%;
 }
 @media (max-width: 830px) and (orientation: portrait) {
     header {
-		background-image: url(../images/background-cropped.jpg);
+		background-image: url(../images/background-cropped.webp);
 	}
 }
 header > div {
@@ -169,7 +169,7 @@ section.portfolio::before {
     bottom: 0;
     left: 0;
     z-index: -1;
-    background-image: url(../images/background-portfolio.jpg);
+    background-image: url(../images/background-portfolio.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -339,6 +339,7 @@ footer p.copy {
     src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 .fa {
     display: inline-block;
