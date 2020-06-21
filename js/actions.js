@@ -1,17 +1,5 @@
 (function() {
     'use strict';
-    var isClientPt = navigator.language.indexOf('pt') >= 0;
-    (function() {
-        var href = location.toString().replace(/\/$/, '');
-        var base = href.replace(/\/en$/, '');
-        if (document.referrer.indexOf(base) < 0) {
-            var expectedLang = isClientPt ? 'pt-BR' : 'en';
-            if (document.documentElement.lang !== expectedLang) {
-                location.replace(base + (isClientPt ? '' : '/en'));
-            }
-        }
-    })();
-
     (function() {
         var quote = document.querySelector('blockquote'),
             text = quote.textContent,
@@ -61,7 +49,7 @@
                                 }
                             }
                         } else {
-                            var message = isClientPt
+                            var message = document.documentElement.lang.indexOf('pt') >= 0
                                 ? 'Ah não! Aconteceu um erro. Por favor tente novamente mais tarde. :)'
                                 : 'Oh no! An error as occurred. Please try again later';
                             alert(message);
