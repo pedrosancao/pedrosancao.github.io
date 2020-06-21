@@ -19,12 +19,7 @@ img {
     white-space: nowrap;
 }
 header {
-    background-image: url(../images/background.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    display: table;
+    background: fixed url(../images/background.jpg) center/cover no-repeat;
     width: 100%;
 }
 @media (max-width: 830px) and (orientation: portrait) {
@@ -33,10 +28,11 @@ header {
 	}
 }
 header > div {
-    display: table-cell;
-    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-height: 400px;
-    height: 500px;
+    height: 100vh;
     background-color: rgba(100,175,182,0.8);
     color: aliceblue;
 }

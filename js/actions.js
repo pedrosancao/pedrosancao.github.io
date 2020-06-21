@@ -13,15 +13,6 @@
     }
     languageNavigation();
 
-    function setHeight() {
-        var height = window.innerHeight || document.documentElement.clientHeight;
-        if (height) {
-            document.querySelector('header div').style.height = Math.max(height, 400) + 'px';
-        }
-    }
-    window.addEventListener('resize', setHeight, false);
-    setHeight();
-    
     function typein() {
         var quote = document.querySelector('blockquote'), text = quote.textContent, caret = '_', i;
         function setCaret() {
