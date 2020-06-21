@@ -56,11 +56,20 @@ header .social a {
     margin: 0 0.5em;
 }
 blockquote {
-    margin: 0 1.5em;
     font-size: 1.5em;
     line-height: 1.75em;
     quotes: "\201C""\201E";
     white-space: pre-wrap;
+}
+@media (max-width: 450px) {
+    blockquote {
+        margin: 0 2.5em;
+    }
+}
+@media (max-width: 320px) {
+    blockquote {
+        margin: 0 1em;
+    }
 }
 blockquote::before {
     content: open-quote;

@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     var isClientPt = navigator.language.indexOf('pt') >= 0;
-    function languageNavigation() {
+    (function() {
         var href = location.toString().replace(/\/$/, '');
         var base = href.replace(/\/en$/, '');
         if (document.referrer.indexOf(base) < 0) {
@@ -10,27 +10,35 @@
                 location.replace(base + (isClientPt ? '' : '/en'));
             }
         }
-    }
-    languageNavigation();
+    })();
 
-    function typein() {
-        var quote = document.querySelector('blockquote'), text = quote.textContent, caret = '_', i;
-        function setCaret() {
-            caret = caret === '_' ? ' ' : '_';
-            quote.textContent = quote.textContent.substr(0, quote.textContent.length - 1) + caret;
+    (function() {
+        var quote = document.querySelector('blockquote'),
+            text = quote.textContent,
+            typed = quote.childNodes[0],
+            space = document.createTextNode(text.replace(/\S/g, String.fromCharCode(160))),
+            caret = document.createElement('span'),
+            i = 0;
+        typed.textContent = '';
+        quote.appendChild(caret).textContent = '_';
+        quote.appendChild(space);
+        setInterval(function () {
+            caret.style.visibility = caret.style.visibility ? '' : 'hidden';
+        }, 500);
+        function type() {
+            typed.textContent = text.substr(0, typed.textContent.length + 1);
+            space.textContent = (' ').repeat(space.textContent.length - 1);
+            ++i < text.length && setTimeout(function() {
+                requestAnimationFrame(type);
+            }, 20);
         }
-        function addChar() {
-            quote.textContent = text.substr(0, quote.textContent.length) + caret;
-        }
-        quote.textContent = '_';
-        setInterval(setCaret, 450);
-        for (i = 0; i < text.length; i += 1) {
-            setTimeout(addChar, 65 * i + 1600);
-        }
-    }
-    typein();
+        setTimeout(function() {
+            space.textContent = (' ').repeat(text.length);
+            requestAnimationFrame(type);
+        }, 1000)
+    })();
 
-    function mail() {
+    (function() {
         var link = document.querySelector('a.mailto'), loaded = false;
         function listener(e) {
             function clearCaptcha() {
@@ -109,10 +117,9 @@
             }
         }
         link.addEventListener('click', listener, false);
-    }
-    mail();
+    })();
 
-    function portfolioBehavior() {
+    (function() {
         var els = document.querySelectorAll('section.portfolio figure');
         if (document.documentElement.ontouchstart !== undefined) {
             document.body.className = 'touch';
@@ -137,6 +144,5 @@
                 }
             }, false);
         });
-    }
-    portfolioBehavior();
+    })();
 })();
