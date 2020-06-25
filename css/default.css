@@ -24,8 +24,8 @@ header {
 }
 @media (max-width: 830px) and (orientation: portrait) {
     header {
-		background-image: url(../images/background-cropped.webp);
-	}
+        background-image: url(../images/background-cropped.webp);
+    }
 }
 header > div {
     display: flex;
@@ -47,7 +47,7 @@ header h1 {
 header h2 {
     font-size: 2em;
     line-height: 1.5em;
-	margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 header .social {
     margin-top: 4em;
@@ -349,6 +349,16 @@ footer p.copy {
         flex-basis: 50%;
         flex-grow: 1;
     }
+}
+
+html {
+    scroll-snap-type: y proximity;
+}
+header, .perfil, .portfolio {
+    scroll-snap-align: start;
+}
+.portfolio figure, .contato {
+    scroll-snap-align: center;
 }
 
 /**
