@@ -13,7 +13,8 @@ Personal single page site, containing brief profile and portfolio.
 - Typing animation
 - Full height content "hero"
 - Scroll snapping
-- Fixed background/paralax
+- Fixed background/parallax
+- Sensitive data protection (e-mail) with recaptcha
 - Desaturation/saturation filter on focus
 - Multilanguage
 
