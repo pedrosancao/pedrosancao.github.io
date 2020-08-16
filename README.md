@@ -4,8 +4,8 @@ Personal single page site, containing brief profile and portfolio.
 
 ## Black lives matter
 
-**This repository has no master.** Article:
-[GitHub to replace "master" with alternative term to avoid slavery references][master-replace].
+**This repository has no master**. Read more:
+[GitHub abandons 'master' term to avoid slavery row][master-replace].
 
 ## Features
 
@@ -19,4 +19,4 @@ Personal single page site, containing brief profile and portfolio.
 - Multilanguage
 
 [pagespeed]: https://developers.google.com/speed/pagespeed/insights/?hl=pt-BR&url=https%3A%2F%2Fpedrosancao.github.io%2Fen%2F&tab=desktop-
-[master-replace]: https://www.zdnet.com/article/github-to-replace-master-with-alternative-term-to-avoid-slavery-references/
+[master-replace]: https://www.bbc.com/news/technology-53050955
