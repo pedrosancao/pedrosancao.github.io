@@ -93,7 +93,7 @@ blockquote::after {
     line-height: 0.1em;
 }
 body > section {
-    padding: 50px 20px;
+    padding: 30px 20px;
 }
 .container {
     max-width: 1250px;
@@ -106,7 +106,7 @@ section h3 {
     font-size: 2.7em;
     position: relative;
     padding-bottom: 0.5em;
-    margin-bottom: 1em;
+    margin-bottom: 0.75em;
 }
 section h3::after {
     position: absolute;
@@ -140,32 +140,62 @@ section.perfil {
     background-color: #2f5653;
 }
 section.perfil section {
-    padding: 0 1em;
     margin-bottom: 2em;
-}
-section.perfil section p {
-    text-align: justify;
-    text-indent: 1em;
+    text-align: left;
+    line-height: 1.5em;
 }
 section.perfil section:last-child {
     margin-bottom: 0;
 }
-section.perfil section.foto span {
-    position: relative;
-    display: inline-block;
+section.perfil picture {
+    margin: 0 auto;
 }
-section.perfil section.foto img {
-    border-radius: 100px;
+section.perfil picture img {
+    border: 10px #303235 solid;
+    border-radius: 50%;
 }
-section.perfil section.foto span::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    box-shadow: 0 0 1px 10px #303235 inset;
-    border-radius: 100px;
+section.perfil section p {
+    text-indent: 1em;
+}
+section.perfil section dt {
+    margin: 0 0 0 1rem;
+    font-weight: bold;
+}
+section.perfil section dt::after {
+    content: ':';
+}
+section.perfil section dd {
+    margin: 0 0 1em;
+}
+section.perfil section dd:last-child {
+    margin-bottom: 0;
+}
+@media (min-width: 500px) {
+    section.perfil .container {
+        box-sizing: border-box;
+        padding: 0 1em;
+        max-width: 900px;
+    }
+    section.perfil picture {
+        margin: 0 1.5em 0 0;
+        float: left;
+        shape-outside: circle(50%);
+    }
+}
+@media (min-width: 640px) {
+    section.perfil section dl {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    section.perfil section dt {
+        margin: 0;
+        flex-basis: 25%;
+    }
+    section.perfil section dd {
+        box-sizing: border-box;
+        padding-left: 0.5em;
+        flex-basis: 75%;
+    }
 }
 section.portfolio {
     position: relative;
@@ -316,26 +346,6 @@ footer p.copy {
     body > section {
         padding-right: 50px;
         padding-left: 50px;
-    }
-    section.perfil {
-        background-color: #2f5653;
-    }
-    section.perfil .container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    section.perfil h3 {
-        flex: 6 0 100%;
-    }
-    section.perfil section {
-        flex: 2 0;
-        margin-bottom: 0;
-    }
-    section.perfil section.foto {
-        flex-grow: 1;
-    }
-    section.perfil section.foto span {
-        margin-top: 3em;
     }
 }
 @media (min-width: 600px) {
