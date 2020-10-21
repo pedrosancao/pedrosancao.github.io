@@ -18,5 +18,5 @@ Personal single page site, containing brief profile and portfolio.
 - Desaturation/saturation filter on focus
 - Multilanguage
 
-[pagespeed]: https://developers.google.com/speed/pagespeed/insights/?hl=pt-BR&url=https%3A%2F%2Fpedrosancao.github.io%2Fen%2F&tab=desktop-
+[pagespeed]: https://developers.google.com/speed/pagespeed/insights/?hl=pt-BR&url=https%3A%2F%2Fsancao.com.br%2Fen%2F&tab=desktop-
 [master-replace]: https://www.bbc.com/news/technology-53050955
