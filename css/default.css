@@ -1,15 +1,38 @@
+:root {
+    --light: #fdfdfd;
+    --dark: #575758;
+    --darker: #303235;
+    --yellow-dark: #fab516;
+    --yellow-light: #ffdd17;
+    --blue-dark: #5179bb;
+    --blue-light: #36a9e0;
+    --blue-lighter: #27a9e1;
+    --violet: #be589c;
+    --green: #00964f;
+    --red: #e74437;
+}
 html, body, ul, li, p,
 h1, h2, h3, h4, blockquote, figure {
     margin: 0;
     padding: 0;
 }
 body {
-    font-family: 'PT Mono', 'Ubuntu Mono', 'Courier New', Courier, monospace;
+    font-family: 'Montserrat', 'Ubuntu Mono', 'Courier New', Courier, monospace;
     text-align: center;
-    color: #efe;
+    background-color: var(--darker);
+    color: var(--light);
+}
+body::before {
+    position: fixed;
+    inset: -100vh -100vw;
+    z-index: -1;
+    rotate: -30deg;
+    content: '';
+    background-image: url(../images/background.webp), linear-gradient(150deg, var(--yellow-light) 33%, var(--blue-lighter) 66%);
+    background-blend-mode: overlay;
 }
 a {
-    color: #fff;
+    color: var(--light);
 }
 img {
     max-width: 100%;
@@ -19,22 +42,11 @@ img {
     white-space: nowrap;
 }
 header {
-    background: fixed url(../images/background.webp) center/cover no-repeat;
-    width: 100%;
-}
-@media (max-width: 830px) and (orientation: portrait) {
-    header {
-        background-image: url(../images/background-cropped.webp);
-    }
-}
-header > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 400px;
     height: 100vh;
-    background-color: rgba(100,175,182,0.8);
-    color: aliceblue;
 }
 header > * {
     padding: 0 15px;
@@ -44,17 +56,54 @@ header h1 {
     line-height: 1.5em;
     margin-top: auto;
 }
+header h1 span {
+    display: none;
+}
+header h1 img {
+    width: 400px;
+}
 header h2 {
     font-size: 2em;
     line-height: 1.5em;
     margin-bottom: 0.5em;
 }
+header h2 em {
+    white-space: nowrap;
+}
 header .social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 4em;
     margin-bottom: 1em;
 }
 header .social a {
+    display: inline-block;
+    overflow: hidden;
     margin: 0 0.5em;
+    text-indent: -100vw;
+    height: 80px;
+    background: url(../images/icons.webp);
+}
+header .social a.twitter {
+    width: 91px;
+    background-position-x: 0px;
+}
+header .social a.stackoverflow {
+    width: 75px;
+    background-position-x: -91px;
+}
+header .social a.blog {
+    width: 79px;
+    background-position-x: -166px;
+}
+header .social a.github {
+    width: 78px;
+    background-position-x: -245px;
+}
+header .social a.linkedin {
+    width: 81px;
+    background-position-x: -323px;
 }
 header nav {
     margin-top: auto;
@@ -70,6 +119,9 @@ blockquote {
     line-height: 1.75em;
     quotes: "\201C""\201E";
     white-space: pre-wrap;
+}
+blockquote:before, blockquote:after {
+    font-family: serif;
 }
 @media (max-width: 450px) {
     blockquote {
@@ -104,20 +156,19 @@ body > section {
 }
 section h3 {
     font-size: 2.7em;
-    position: relative;
     padding-bottom: 0.5em;
-    margin-bottom: 0.75em;
+    margin: 0 10% 0.75em;
+    box-shadow: 0 -1px 0 rgba(0,0,51,0.2) inset;
+    border-bottom: 1px rgba(204,204,204,0.3) solid;
+    quotes: '{!' '}';
+}
+section h3::before {
+    content: open-quote;
+    margin-right: 1rem;
 }
 section h3::after {
-    position: absolute;
-    display: block;
-    content: '';
-    left: 10%;
-    bottom: 0;
-    width: 80%;
-    height: 1px;
-    background-color: rgba(204,255,204,0.3);
-    border-top: 1px rgba(0,0,51,0.5) solid;
+    content: close-quote;
+    margin-left: 1rem;
 }
 section h4 {
     font-size: 1.5em;
@@ -135,9 +186,16 @@ section li {
     text-align: left;
     margin: 0.4em 0;
 }
-/* color palette: http://www.color-hex.com/color-palette/15760 */
 section.perfil {
-    background-color: #2f5653;
+    background-color: rgba(240,240,240,.6);
+    color: var(--dark);
+}
+section.perfil h3 {
+    border-bottom-color: rgb(204,204,204);
+    quotes: '{>' '}';
+}
+section.perfil h3::before {
+    color: var(--violet);
 }
 section.perfil section {
     margin-bottom: 2em;
@@ -151,11 +209,12 @@ section.perfil picture {
     margin: 0 auto;
 }
 section.perfil picture img {
-    border: 10px #303235 solid;
+    border: 2px var(--violet) solid;
     border-radius: 50%;
 }
 section.perfil section p {
     text-indent: 1em;
+    line-height: 1.65;
 }
 section.perfil section dt {
     margin: 0 0 0 1rem;
@@ -199,7 +258,10 @@ section.perfil section dd:last-child {
 }
 section.portfolio {
     position: relative;
-    background-color: rgba(104, 114, 118, .97);
+    background-color: rgba(81, 121, 187, .97);
+}
+section.portfolio h3::before {
+    color: var(--blue-light);
 }
 section.portfolio::before {
     content: '';
@@ -216,6 +278,9 @@ section.portfolio::before {
     background-attachment: fixed;
 }
 section.portfolio figure {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     padding: 1em 1em 0;
     margin-bottom: 6em;
     border-radius: 10px;
@@ -226,10 +291,11 @@ section.portfolio figure {
 section.portfolio figure::after {
     content: '';
     display: block;
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 1px;
-    top: 3em;
+    left: 0;
+    top: calc(100% + 3em);
     background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,0.2), rgba(0,0,0,0));
 }
 section.portfolio figure:last-child {
@@ -250,28 +316,42 @@ section.portfolio figure img {
     filter: grayscale(1);
     opacity: 0.4;
 }
-section.portfolio figure:hover,
-.touch section.portfolio figure.on-screen {
+section.portfolio figure.on-screen {
     background-color: rgba(255,255,255,0.2);
 }
-section.portfolio figure:hover img,
-.touch section.portfolio figure.on-screen img {
+section.portfolio figure.on-screen img {
     -webkit-filter: none;
     filter: none;
     opacity: 1;
 }
-.touch section.portfolio figure,
-.touch section.portfolio figure img {
+section.portfolio figure,
+section.portfolio figure img {
     transition-delay: 0.5s;
 }
 section.portfolio figure figcaption {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 1em;
 }
 section.portfolio figure figcaption h4 {
-    line-height: 2em;
+    margin-bottom: 0.4em;
+}
+section.portfolio figure figcaption legend {
+    font-size: 80%;
+    margin: auto 0 1em;
 }
 section.contato {
-    background-color: #54504d;
+    background-color: rgba(190,88,156,.5);
+}
+section.contato h3 {
+    quotes: '{@' '}';
+}
+section.contato h3::before {
+    color: var(--yellow-dark);
+}
+section.contato p {
+    line-height: 2em;
+    font-weight: 600;
 }
 .captcha {
     position: absolute;
@@ -283,7 +363,7 @@ section.contato {
 footer {
     font-size: 0.8em;
     padding: 10px 20px;
-    background-color: #303235;
+    background-color: rgba(190,88,156,.5);
 }
 footer p {
     margin: 10px 0;
@@ -317,6 +397,7 @@ footer p.copy {
 }
 @media (min-width: 800px) {
     section.portfolio figure {
+        flex-direction: row;
         padding: 0;
     }
     section.portfolio figure img {
@@ -335,6 +416,9 @@ footer p.copy {
         visibility: hidden;
         height: 0;
         clear: both;
+    }
+    section.portfolio figure figcaption h4 {
+        margin: 1rem 0;
     }
 }
 @media (max-width: 380px) {
@@ -369,52 +453,4 @@ header, .perfil, .portfolio {
 }
 .portfolio figure, .contato {
     scroll-snap-align: center;
-}
-
-/**
- *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome (partial)
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
-@font-face {
-    font-family: 'FontAwesome';
-    src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.eot?v=4.5.0');
-    src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-.fa {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.fa-lg {
-    font-size: 1.5em
-}
-.fa-2x {
-    font-size: 2em;
-}
-.fa-twitter:before {
-    content: "\f099";
-}
-.fa-github:before {
-    content: "\f09b";
-}
-.fa-linkedin:before {
-    content: "\f0e1";
-}
-.fa-stack-overflow:before {
-    content: "\f16c";
-}
-.fa-wordpress:before {
-    content: "\f19a";
-}
-.fa-at:before {
-    content: "\f1fa";
-}
-.fa-language:before {
-    content: "\f1ab";
 }

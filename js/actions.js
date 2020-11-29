@@ -109,9 +109,6 @@
 
     (function() {
         var els = document.querySelectorAll('section.portfolio figure');
-        if (document.documentElement.ontouchstart !== undefined) {
-            document.body.className = 'touch';
-        }
         document.addEventListener('scroll', function() {
             var winHeight = window.innerHeight || document.documentElement.clientHeight,
                 winTop = window.scrollY,
