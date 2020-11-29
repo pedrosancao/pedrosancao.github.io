@@ -5,27 +5,26 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
         <meta name="description" content="I'm a versatile developer, focused on web technologies with more than 10 year of professional experience.">
-        <link href="https://fonts.googleapis.com/css?family=PT+Mono&amp;display=swap" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
         <link href="../css/default.css" rel="stylesheet" type="text/css">
         <link href="../images/favicon.png" rel="icon" type="image/png" sizes="32x32">
     </head>
     <body>
         <header>
-            <div>
-                <h1>Pedro Sanção</h1>
-                <h2>Full Stack Developer</h2>
-                <blockquote>I gonna do an Internet!</blockquote>
-                <div class="social">
-                    <a title="LinkedIn" href="https://linkedin.com/in/pedrosancao" rel="external noopener" target="_blank"><i class="fa fa-2x fa-linkedin"></i></a>
-                    <a title="GitHub" href="https://github.com/pedrosancao" rel="external noopener" target="_blank"><i class="fa fa-2x fa-github"></i></a>
-                    <a title="StackOverflow" href="https://stackoverflow.com/users/2932525/pedro-san%c3%a7%c3%a3o" rel="external noopener" target="_blank"><i class="fa fa-2x fa-stack-overflow"></i></a>
-                </div>
-                <nav class="lang">
-                    <i class="fa fa-lg fa-language"></i>
-                    <a href="../" hreflang="pt-BR">Português</a>
-                    <a href="./" hreflang="en">English</a>
-                </nav>
+            <h1>Pedro Sanção</h1>
+            <h2>Full Stack Developer</h2>
+            <blockquote>I gonna do an Internet!</blockquote>
+            <div class="social">
+                <a class="linkedin" href="https://linkedin.com/in/pedrosancao" rel="external noopener" target="_blank">LinkedIn</a>
+                <a class="github" href="https://github.com/pedrosancao" rel="external noopener" target="_blank">GitHub</a>
+                <a class="stackoverflow" href="https://stackoverflow.com/users/2932525/pedro-san%c3%a7%c3%a3o" rel="external noopener" target="_blank">Stack Overflow</a>
             </div>
+            <nav class="lang">
+                <i class="fa fa-lg fa-language"></i>
+                <a href="../" hreflang="pt-BR">Português</a>
+                <a href="./" hreflang="en">English</a>
+            </nav>
         </header>
         <section class="perfil">
             <div class="container">
@@ -67,25 +66,22 @@
             <div class="container">
                 <h3>Some of my work</h3>
                 <figure>
-                    <img src="../images/press.webp" width="300" height="240" alt="Printing press">
+                    <img src="../images/press.webp" width="300" height="240" alt="Printing press pieces">
                     <figcaption>
                         <h4><a href="https://github.com/pedrosancao/wordimpress" rel="external noopener" target="_blank">WordImpress</a> <small>PHP</small></h4>
 						<p>Static site generator library that uses Wordpress API as content source. The library still a prototype.</p>
+                        <legend>
+                            Photo by
+                            <a href="https://unsplash.com/@marcusdepaula?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" rel="external noopener" target="_blank">Marcus dePaula on Unsplash</a>
+                        </legend>
                     </figcaption>
                 </figure>
                 <figure>
                     <img src="../images/security-token.webp" width="300" height="240" alt="Access token">
                     <figcaption>
-                        <h4><a href="https://authenticator.sancao.com.br/" rel="external noopener" target="_blank">Authenticator</a> <small>PHP</small></h4>
+                        <h4><a href="https://github.com/pedrosancao/authenticator-client" rel="external noopener" target="_blank">Authenticator</a> <small>PHP</small></h4>
                         <p>A web client for two-factor authentication, providing additional layer of security to your accounts on the go. Different from mobile apps it doesn't bind you to a specific device.</p>
 						<p>The package to generate tokens also is available at <a href="https://github.com/pedrosancao/php-otp" rel="external noopener" target="_blank">PHP One Time Password</a>.</p>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="../images/asciimath.webp" width="300" height="240" alt="Plugin AsciiMath para TinyMCE 4">
-                    <figcaption>
-                        <h4><a href="https://pedrosancao.github.io/asciimath-tinymce4/" rel="external noopener" target="_blank">AsciiMath Plugin for TinyMCE 4</a> <small>Javascript</small></h4>
-                        <p>Plugin to include math formulas on TinyMCE 4 <abbr title="What You See Is What You Get">WYSIWYG</abbr> editor using AsciiMath syntax and MathJax to render. There is a <a href="https://pedrosancao.github.io/asciimath-tinymce4/demo.html" rel="external noopener" target="_blank">demo available here</a>.</p>
                     </figcaption>
                 </figure>
                 <figure>
@@ -95,22 +91,25 @@
                         <p>Package to extract colors from images, has settings of sensitivity and several reduce and group algorithms.</p>
                     </figcaption>
                 </figure>
+                <figure>
+                    <img src="../images/asciimath.webp" width="300" height="240" alt="Plugin AsciiMath para TinyMCE 4">
+                    <figcaption>
+                        <h4><a href="https://pedrosancao.github.io/asciimath-tinymce4/" rel="external noopener" target="_blank">AsciiMath Plugin for TinyMCE 4</a> <small>Javascript</small></h4>
+                        <p>Plugin to include math formulas on TinyMCE 4 <abbr title="What You See Is What You Get">WYSIWYG</abbr> editor using AsciiMath syntax and MathJax to render. There is a <a href="https://pedrosancao.github.io/asciimath-tinymce4/demo.html" rel="external noopener" target="_blank">demo available here</a>.</p>
+                    </figcaption>
+                </figure>
             </div>
             <div class="container">
                 <h3>Projects I contributed</h3>
                 <figure>
-                    <img src="../images/jquery-autogrow.webp" width="300" height="240" alt="jQuery Autogrow">
+                    <img src="../images/short-url.webp" width="300" height="240" alt="Laravel Short URL">
                     <figcaption>
-                        <h4><a href="https://github.com/pedrosancao/autogrow" rel="external noopener" target="_blank">Autogrow Plugin</a> <small>jQuery</small></h4>
-                        <p>Extremely lightweight plugin to grow and shrink <code>&lt;textarea&gt;</code> height according to content to avoid scrollbar.</p>
-                        <p>I added suport to callback functions.</p>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="../images/php-oauth-server.webp" width="300" height="240" alt="PHP OAuth2 Server">
-                    <figcaption>
-                        <h4><a href="https://github.com/pedrosancao/oauth2-server-php" rel="external noopener" target="_blank">OAuth2 Server</a> <small>PHP</small></h4>
-                        <p>OAuth server PHP implementation. I allowed shared PDO connection, improving integration with existing systems.</p>
+                        <h4><a href="https://github.com/pedrosancao/autogrow" rel="external noopener" target="_blank">Laravel Short URL</a> <small>PHP/Laravel</small></h4>
+                        <p>A package to shorten URLs without use of external services.</p>
+                        <p>Added a way to allow developers to override migrations on the package.</p>
+                        <legend>
+                            Logo by <a href="https://twitter.com/caneco" rel="external noopener" target="_blank">Caneco</a>
+                        </legend>
                     </figcaption>
                 </figure>
                 <figure>
@@ -126,10 +125,10 @@
             <div class="container">
                 <h3>Contact</h3>
                 <div class="flexbox">
-                    <p><i class="fa fa-at"></i> <a href="#" class="mailto">See e-mail</a></p>
-                    <p><i class="fa fa-linkedin"></i> <a href="https://linkedin.com/in/pedrosancao" rel="external noopener" target="_blank">LinkedIn</a></p>
-                    <p><i class="fa fa-github"></i> <a href="https://github.com/pedrosancao" rel="external noopener" target="_blank">GitHub</a></p>
-                    <p><i class="fa fa-stack-overflow"></i> <a href="https://stackoverflow.com/users/2932525/pedro-san%c3%a7%c3%a3o" rel="external noopener" target="_blank">StackOverflow</a></p>
+                    <p><a href="#" class="mailto">See e-mail</a></p>
+                    <p><a href="https://linkedin.com/in/pedrosancao" rel="external noopener" target="_blank">LinkedIn</a></p>
+                    <p><a href="https://github.com/pedrosancao" rel="external noopener" target="_blank">GitHub</a></p>
+                    <p><a href="https://stackoverflow.com/users/2932525/pedro-san%c3%a7%c3%a3o" rel="external noopener" target="_blank">StackOverflow</a></p>
                 </div>
             </div>
         </section>
@@ -140,7 +139,6 @@
                 <a href="./" hreflang="en">English</a>
             </p>
             <p class="copy">Copyright &copy; 2020 Sancao Co. - created by Pedro Sanção</p>
-            <p><a href="https://flic.kr/p/bBsyor" rel="external noopener" target="_blank">Vista - Parque do Ibirapuera</a> by Flávio / <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/" rel="external noopener" target="_blank" class="no-wrap">CC BY-NC-ND 2.0</a></p>
         </footer>
         <script src="../js/actions.js"></script>
         <script>

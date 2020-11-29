@@ -1,19 +1,6 @@
 (function() {
     'use strict';
     (function() {
-        var rule = Array.prototype.find.call(document.styleSheets[1].rules, function(rule) {
-            return rule.selectorText === 'header::before';
-        });
-        var offset = 3;
-        var pattern = rule.style.content.replace(/"/g, '');
-        var content = Array(50).fill('').map(function() {
-            pattern = pattern.substr(offset) + pattern.substr(0, offset);
-            return pattern.repeat(10);
-        }).join('\\00000a');
-        rule.style.content = '"' + content + '"';
-    })();
-
-    (function() {
         var quote = document.querySelector('blockquote'),
             text = quote.textContent,
             typed = quote.childNodes[0],
@@ -122,9 +109,6 @@
 
     (function() {
         var els = document.querySelectorAll('section.portfolio figure');
-        if (document.documentElement.ontouchstart !== undefined) {
-            document.body.className = 'touch';
-        }
         document.addEventListener('scroll', function() {
             var winHeight = window.innerHeight || document.documentElement.clientHeight,
                 winTop = window.scrollY,
