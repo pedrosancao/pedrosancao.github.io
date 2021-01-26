@@ -130,4 +130,25 @@
       }, false);
     });
   })();
+
+  (function() {
+    var viewed = [];
+    var containers = document.querySelectorAll('section[class]');
+    document.addEventListener('scroll', function() {
+      if (typeof ga !== 'function') {
+        return;
+      }
+      var winHeight = window.innerHeight || document.documentElement.clientHeight;
+      Array.prototype.forEach.call(containers, function (section) {
+        if (!!~viewed.indexOf(section.className)) {
+          return;
+        }
+        var rect = section.getBoundingClientRect();
+        if (rect.top <= 10 && rect.top > -400 || rect.height < winHeight && rect.bottom > 10 && rect.bottom < winHeight) {
+          ga('send', 'event', section.className + '-viewed');
+          viewed.push(section.className);
+        }
+      });
+    });
+  })();
 })();
