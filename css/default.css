@@ -1,15 +1,13 @@
 :root {
 	--light: #fdfdfd;
-	--dark: #575758;
-	--darker: #303235;
+	--dark: #49494b;
 	--yellow-dark: #fab516;
 	--yellow-light: #ffdd17;
 	--blue-dark: #5179bb;
 	--blue-light: #36a9e0;
 	--blue-lighter: #27a9e1;
-	--violet: #be589c;
-	--green: #00964f;
-	--lime: #66c48b;
+	--violet: #9F1972;
+	--green-semi: rgba(37, 209, 80, 0.4);
 	--red: #e74437;
 }
 html, body, ul, li, p,
@@ -17,10 +15,13 @@ h1, h2, h3, h4, blockquote, figure {
 	margin: 0;
 	padding: 0;
 }
+html {
+  scrollbar-color: rgba(21,21,21,0.5) var(--gradient-bg-2);
+}
 body {
 	font-family: 'Montserrat', 'Ubuntu Mono', 'Courier New', Courier, monospace;
 	text-align: center;
-	background-color: var(--lime);
+	background-color: var(--violet);
 	color: var(--light);
 }
 body::before {
@@ -32,6 +33,7 @@ body::before {
 	content: '';
 	background-image: url(../images/background.webp), linear-gradient(150deg, var(--yellow-light) 33%, var(--blue-lighter) 66%);
 	background-blend-mode: overlay;
+  opacity: 0.4;
 }
 a {
 	color: var(--light);
@@ -215,7 +217,7 @@ section li {
 	margin: 0.4em 0;
 }
 section.perfil {
-	background-color: rgba(240,240,240,.6);
+	background-color: rgba(255,240,240,.7);
 	color: var(--dark);
 }
 section.perfil h3 {
@@ -223,7 +225,7 @@ section.perfil h3 {
 	quotes: '{>' '}';
 }
 section.perfil h3::before {
-	color: var(--violet);
+	color: var(--red);
 }
 section.perfil section {
 	margin-bottom: 2em;
@@ -237,7 +239,7 @@ section.perfil picture {
 	margin: 0 auto;
 }
 section.perfil picture img {
-	border: 2px var(--violet) solid;
+	border: 2px var(--red) solid;
 	border-radius: 50%;
 }
 section.perfil section p {
@@ -286,7 +288,7 @@ section.perfil section dd:last-child {
 }
 section.portfolio {
 	position: relative;
-	background-color: rgba(81, 121, 187, .97);
+	background-color: rgba(65, 102, 163, 0.97);
 }
 section.portfolio h3::before {
 	color: var(--blue-light);
@@ -345,7 +347,7 @@ section.portfolio figure img {
 	opacity: 0.4;
 }
 section.portfolio figure.on-screen {
-	background-color: rgba(255,255,255,0.2);
+	background-color: rgba(255,255,255,0.12);
 }
 section.portfolio figure.on-screen img {
 	-webkit-filter: none;
@@ -368,8 +370,9 @@ section.portfolio figure figcaption legend {
 	font-size: 80%;
 	margin: auto 0 1em;
 }
-section.contato {
-	background-color: rgba(190,88,156,.5);
+.composite-footer {
+	background-color: var(--green-semi);
+	background-blend-mode: overlay;
 }
 section.contato h3 {
 	quotes: '{@' '}';
@@ -391,7 +394,6 @@ section.contato p {
 footer {
 	font-size: 0.8em;
 	padding: 10px 20px;
-	background-color: rgba(190,88,156,.5);
 }
 footer p {
 	margin: 10px 0;
@@ -478,6 +480,6 @@ html {
 header, .perfil, .portfolio {
 	scroll-snap-align: start;
 }
-.portfolio figure, .contato {
+.portfolio figure, .contato, footer {
 	scroll-snap-align: center;
 }
