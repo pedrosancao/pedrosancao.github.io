@@ -16,7 +16,7 @@ h1, h2, h3, h4, blockquote, figure {
 	padding: 0;
 }
 html {
-  scrollbar-color: rgba(21,21,21,0.5) var(--gradient-bg-2);
+  scrollbar-color: rgba(21,21,21,0.5) var(--violet);
 }
 body {
 	font-family: 'Montserrat', 'Ubuntu Mono', 'Courier New', Courier, monospace;
@@ -369,10 +369,6 @@ section.portfolio figure figcaption h4 {
 section.portfolio figure figcaption legend {
 	font-size: 80%;
 	margin: auto 0 1em;
-}
-.composite-footer {
-	background-color: var(--green-semi);
-	background-blend-mode: overlay;
 }
 section.contato h3 {
 	quotes: '{@' '}';
