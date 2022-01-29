@@ -4,24 +4,27 @@
     var quote = document.querySelector('blockquote'),
       text = quote.textContent,
       typed = quote.childNodes[0],
-      space = document.createTextNode(text.replace(/\S/g, String.fromCharCode(160))),
       caret = document.createElement('span'),
-      i = 0;
+      transparent = document.createElement('span'),
+      i = 1;
     typed.textContent = '';
-    quote.appendChild(caret).textContent = '_';
-    quote.appendChild(space);
+    caret.textContent = '_';
+    caret.setAttribute('aria-hidden', true);
+    quote.appendChild(caret);
+    transparent.textContent = text;
+    transparent.style.color = 'transparent';
+    quote.appendChild(transparent);
     setInterval(function () {
       caret.style.visibility = caret.style.visibility ? '' : 'hidden';
     }, 500);
     function type() {
-      typed.textContent = text.substr(0, typed.textContent.length + 1);
-      space.textContent = (' ').repeat(space.textContent.length - 1);
-      ++i < text.length && setTimeout(function() {
+      typed.textContent = text.substring(0, i);
+      transparent.textContent = text.substring(i);
+      ++i <= text.length && setTimeout(function() {
         requestAnimationFrame(type);
-      }, 20);
+      }, 20) || transparent.remove();
     }
     setTimeout(function() {
-      space.textContent = (' ').repeat(text.length);
       requestAnimationFrame(type);
     }, 1000)
   })();
