@@ -190,7 +190,7 @@ section h3 {
 	margin: 0 10% 0.75em;
 	box-shadow: 0 -1px 0 rgba(51,51,51,0.2) inset;
 	border-bottom: 1px rgba(204,204,204,0.3) solid;
-	quotes: '{!' '}';
+	quotes: '{' '}';
 }
 section h3::before {
 	content: open-quote;
@@ -222,7 +222,7 @@ section.perfil {
 }
 section.perfil h3 {
 	border-bottom-color: rgb(204,204,204);
-	quotes: '{>' '}';
+	quotes: '{' '}';
 }
 section.perfil h3::before {
 	color: var(--red);
@@ -371,7 +371,7 @@ section.portfolio figure figcaption legend {
 	margin: auto 0 1em;
 }
 section.contato h3 {
-	quotes: '{@' '}';
+	quotes: '{' '}';
 }
 section.contato h3::before {
 	color: var(--yellow-dark);
